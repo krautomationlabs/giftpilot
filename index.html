@@ -3,375 +3,112 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="robots" content="index,follow" />
-  <meta name="description" content="Giftpilot: schnelle, ehrliche Geschenkideen nach Anlass, Budget & Person – inklusive Preis-Checks, Vergleichen und Empfehlungen." />
   <title>Giftpilot — Clean Lean Booster Hub</title>
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Giftpilot — Geschenkideen, schnell & sauber" />
-  <meta property="og:description" content="Finde passende Geschenke nach Anlass, Budget und Person. Kurz, klar, ohne Gelaber." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://krautomationlabs.github.io/giftpilot/" />
-
+  <meta name="description" content="Giftpilot bündelt Deals, Vergleiche und Empfehlungen — schnell, sauber, transparent." />
+  <meta name="robots" content="index,follow" />
   <style>
-    :root{
-      --bg:#0b0d10;
-      --card:#11151a;
-      --text:#e9eef5;
-      --muted:#aab6c4;
-      --line:rgba(255,255,255,.08);
-      --accent:#ffffff;
-      --shadow: 0 18px 60px rgba(0,0,0,.45);
-      --radius: 16px;
-    }
+    :root{--bg:#0b0f14;--card:#111826;--text:#e6edf3;--muted:#9fb0c0;--line:#1b2a3a;--acc:#7dd3fc}
     *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      color:var(--text);
-      background:
-        radial-gradient(1200px 700px at 15% 10%, rgba(255,255,255,.10), transparent 55%),
-        radial-gradient(900px 600px at 80% 20%, rgba(255,255,255,.06), transparent 60%),
-        linear-gradient(180deg, #07090c, #0b0d10 40%, #07090c);
-      min-height:100vh;
+    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;background:radial-gradient(900px 600px at 20% 10%,#122034,transparent 60%),var(--bg);color:var(--text)}
+    .wrap{max-width:980px;margin:0 auto;padding:44px 20px 60px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:26px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:38px;height:38px;border:1px solid var(--line);border-radius:10px;display:grid;place-items:center;background:linear-gradient(180deg,#0f172a,#0b1220)}
+    .logo b{letter-spacing:.5px}
+    nav a{color:var(--muted);text-decoration:none;margin-left:14px;font-size:14px}
+    nav a:hover{color:var(--text)}
+    .hero{border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border-radius:18px;padding:28px}
+    h1{margin:0 0 10px;font-size:34px;line-height:1.15}
+    p{margin:0 0 14px;color:var(--muted);line-height:1.6}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0}
+    .chip{border:1px solid var(--line);border-radius:999px;padding:6px 10px;font-size:12px;color:var(--muted);background:rgba(255,255,255,.02)}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:16px}
+    .card{grid-column:span 12;border:1px solid var(--line);background:rgba(17,24,38,.6);border-radius:16px;padding:16px}
+    .card h2{margin:0 0 6px;font-size:16px}
+    .card small{color:var(--muted)}
+    .btnrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:12px;border:1px solid var(--line);text-decoration:none;color:var(--text);background:rgba(255,255,255,.03);font-size:14px}
+    .btn:hover{border-color:#2a415a}
+    .btn .dot{width:8px;height:8px;border-radius:999px;background:var(--acc)}
+    footer{margin-top:22px;padding-top:14px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+    footer a{color:var(--muted);text-decoration:none;font-size:13px}
+    footer a:hover{color:var(--text)}
+    @media(min-width:860px){
+      .card{grid-column:span 6}
     }
-    a{color:inherit; text-decoration:none}
-    .wrap{max-width:1080px; margin:0 auto; padding:28px 18px 56px}
-    header{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:14px; padding:10px 2px 18px;
-    }
-    .brand{
-      display:flex; align-items:center; gap:12px;
-      letter-spacing:.2px;
-    }
-    .logo{
-      width:38px; height:38px; border-radius:12px;
-      border:1px solid var(--line);
-      background: linear-gradient(135deg, rgba(255,255,255,.16), rgba(255,255,255,.04));
-      box-shadow: var(--shadow);
-      position:relative;
-    }
-    .logo:after{
-      content:""; position:absolute; inset:10px;
-      border-radius:10px; border:1px solid rgba(255,255,255,.18);
-    }
-    .brand h1{font-size:16px; margin:0}
-    .brand span{display:block; font-size:12px; color:var(--muted); margin-top:2px}
-    .nav{display:flex; gap:10px; flex-wrap:wrap}
-    .pill{
-      padding:10px 12px;
-      border:1px solid var(--line);
-      border-radius:999px;
-      background: rgba(255,255,255,.04);
-      font-size:13px;
-    }
-    .hero{
-      margin-top:10px;
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(255,255,255,.03);
-      box-shadow: var(--shadow);
-      padding:26px 18px;
-    }
-    .hero-grid{
-      display:grid; gap:18px;
-      grid-template-columns: 1.15fr .85fr;
-      align-items:start;
-    }
-    @media (max-width:900px){ .hero-grid{grid-template-columns:1fr} }
-    .kicker{
-      display:inline-flex; gap:8px; align-items:center;
-      font-size:12px; color:var(--muted);
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      padding:8px 10px; border-radius:999px;
-    }
-    .title{
-      margin:14px 0 10px;
-      font-size:40px;
-      line-height:1.08;
-      letter-spacing:-.6px;
-    }
-    @media (max-width:520px){ .title{font-size:32px} }
-    .subtitle{
-      margin:0 0 18px;
-      color:var(--muted);
-      font-size:15px; line-height:1.6;
-      max-width:64ch;
-    }
-    .cta-row{display:flex; gap:10px; flex-wrap:wrap}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      gap:10px;
-      padding:12px 14px;
-      border-radius:12px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.06);
-      font-size:14px;
-      cursor:pointer;
-      user-select:none;
-    }
-    .btn.primary{
-      background: rgba(255,255,255,.90);
-      color:#0b0d10;
-      border-color: transparent;
-      font-weight:600;
-    }
-    .btn:active{transform: translateY(1px)}
-    .panel{
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(0,0,0,.18);
-      padding:16px;
-    }
-    .panel h3{margin:0 0 10px; font-size:14px}
-    .panel p{margin:0; color:var(--muted); font-size:13px; line-height:1.55}
-    .grid{
-      margin-top:18px;
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap:12px;
-    }
-    .card{
-      grid-column: span 4;
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(255,255,255,.03);
-      padding:14px;
-    }
-    @media (max-width:900px){ .card{grid-column:span 6} }
-    @media (max-width:560px){ .card{grid-column:span 12} }
-    .card h4{margin:0 0 8px; font-size:14px}
-    .card p{margin:0; color:var(--muted); font-size:13px; line-height:1.55}
-    .card a{display:inline-flex; margin-top:10px; font-size:13px; color:#fff; opacity:.92}
-    .divider{height:1px; background:var(--line); margin:18px 0}
-    .form{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:10px;
-      margin-top:10px;
-    }
-    @media (max-width:700px){ .form{grid-template-columns:1fr} }
-    input, select{
-      width:100%;
-      padding:12px 12px;
-      border-radius:12px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      color:var(--text);
-      outline:none;
-      font-size:14px;
-    }
-    input::placeholder{color:rgba(233,238,245,.55)}
-    .small{font-size:12px; color:var(--muted); line-height:1.5}
-    footer{
-      margin-top:20px;
-      padding:18px 6px 0;
-      color:var(--muted);
-      font-size:12px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:space-between;
-      align-items:center;
-    }
-    .links{display:flex; gap:12px; flex-wrap:wrap}
-    .links a{opacity:.9; text-decoration:underline; text-decoration-color:rgba(255,255,255,.22)}
   </style>
 </head>
-
 <body>
   <div class="wrap">
     <header>
       <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
+        <div class="logo" aria-hidden="true"><b>GP</b></div>
         <div>
-          <h1>Giftpilot</h1>
-          <span>Clean • Lean • Booster Hub</span>
+          <div style="font-weight:700;letter-spacing:.2px">Giftpilot</div>
+          <div style="color:var(--muted);font-size:13px;margin-top:2px">Clean • Lean • Booster Hub</div>
         </div>
       </div>
-      <nav class="nav" aria-label="Navigation">
-        <a class="pill" href="#finder">Geschenk-Finder</a>
-        <a class="pill" href="#kategorien">Kategorien</a>
-        <a class="pill" href="#faq">FAQ</a>
+      <nav>
+        <a href="#deals">Kategorien</a>
+        <a href="#transparenz">Transparenz</a>
+        <a href="#kontakt">Kontakt</a>
       </nav>
     </header>
 
     <section class="hero">
-      <div class="hero-grid">
-        <div>
-          <div class="kicker">⚡ Schnell zur Idee · 🎯 nach Anlass & Budget · 🧠 ohne Gelaber</div>
-          <h2 class="title">Geschenke finden, die nicht peinlich sind.</h2>
-          <p class="subtitle">
-            Giftpilot hilft dir in 60 Sekunden zu einer sauberen Auswahl — nach Person, Anlass und Budget.
-            Kurzliste + Preis-Checks + Empfehlungen. Wertig, klar, effizient.
-          </p>
-
-          <div class="cta-row">
-            <a class="btn primary" href="#finder">Jetzt Geschenk-Finder starten</a>
-            <a class="btn" href="#kategorien">Zu den Kategorien</a>
-          </div>
-
-          <div class="divider"></div>
-          <p class="small">
-            Hinweis: Einige Links können Affiliate-Links sein. Für dich ändert sich der Preis nicht.
-          </p>
-        </div>
-
-        <aside class="panel">
-          <h3>Heute live. Morgen skalierbar.</h3>
-          <p>
-            Diese Seite ist bewusst lean: GitHub Pages, 1 Datei, null Wartung.
-            Wenn Traffic kommt, klonen wir Kategorien als Landingpages und hängen Vergleichstabellen & Deals dran.
-          </p>
-
-          <div class="divider"></div>
-          <p class="small">
-            Nächster Step: “Top Deals” Block + 3–5 High-Intent Kategorien (z. B. Apple Refurb, Smart Home, Garten, Mobility).
-          </p>
-        </aside>
-      </div>
-
-      <div id="finder" class="divider"></div>
-
-      <h3 style="margin:0 0 8px; font-size:16px;">Giftpilot-Finder (MVP)</h3>
-      <p class="small" style="margin:0 0 10px;">
-        Fülle 2–3 Felder aus → wir zeigen dir sofort die passenden Startpunkte (und bauen daraus später automatisierte Listen).
+      <h1>Deals & Vergleiche — schnell, klar, ohne Gelaber.</h1>
+      <p>
+        Giftpilot bündelt Empfehlungen, Vergleiche und Aktions-Links für saisonale Themen
+        (z. B. Balkonkraftwerke, Speicher, Powerstations, Reise-Deals).
+        Transparent. Ohne „Wundertüten“.
       </p>
-
-      <div class="form" role="form" aria-label="Geschenk Finder">
-        <select id="who">
-          <option value="">Für wen?</option>
-          <option>Partner:in</option>
-          <option>Freund:in</option>
-          <option>Familie</option>
-          <option>Kolleg:in</option>
-          <option>Teenager</option>
-          <option>Kind</option>
-        </select>
-
-        <select id="occasion">
-          <option value="">Anlass?</option>
-          <option>Geburtstag</option>
-          <option>Valentinstag</option>
-          <option>Jubiläum</option>
-          <option>Einzug / Umzug</option>
-          <option>Hochzeit</option>
-          <option>Weihnachten</option>
-        </select>
-
-        <input id="budget" placeholder="Budget (z.B. 30–80 €)" />
-        <select id="style">
-          <option value="">Stil?</option>
-          <option>Praktisch</option>
-          <option>Luxus</option>
-          <option>Technik</option>
-          <option>Erlebnis</option>
-          <option>Design / Deko</option>
-          <option>Outdoor</option>
-        </select>
+      <div class="chips">
+        <span class="chip">Saisonscanner</span>
+        <span class="chip">Vergleichs-Hub</span>
+        <span class="chip">Affiliate-Links (Hinweis unten)</span>
       </div>
 
-      <div class="cta-row" style="margin-top:12px;">
-        <button class="btn primary" onclick="showSuggestions()">Vorschläge anzeigen</button>
-        <button class="btn" onclick="resetForm()">Zurücksetzen</button>
-      </div>
-
-      <div id="result" class="panel" style="margin-top:12px; display:none;">
-        <h3 style="margin:0 0 8px; font-size:14px;">Startpunkte</h3>
-        <div id="resultText" class="small"></div>
+      <div class="btnrow">
+        <a class="btn" href="#deals"><span class="dot"></span>Zu den Kategorien</a>
+        <a class="btn" href="#transparenz"><span class="dot"></span>Partner- & Werbehinweis</a>
       </div>
     </section>
 
-    <section id="kategorien" class="grid" style="margin-top:18px;">
+    <section id="deals" class="grid" aria-label="Kategorien">
       <div class="card">
-        <h4>Apple / Refurb (Ostern-Peak)</h4>
-        <p>Refurbed, Back Market & Co. — kaufstark, high intent, hoher Traffic über Deals/Newsletter.</p>
-        <a href="#" onclick="return false;">→ Kategorie kommt heute</a>
+        <h2>⚡ Balkonkraftwerk & Speicher</h2>
+        <small>Deals, Vergleich & Kaufhilfe (coming next)</small>
       </div>
       <div class="card">
-        <h4>Smart Home / Sicherheit</h4>
-        <p>Türschlösser, Kameras, Klingeln, Sensorik — Status-Käufe, wenig Beratung, hoher Warenkorb.</p>
-        <a href="#" onclick="return false;">→ Kategorie kommt heute</a>
+        <h2>🔋 Powerstations</h2>
+        <small>Modelle, Größen, Use-Cases (coming next)</small>
       </div>
       <div class="card">
-        <h4>Garten / Lifestyle (Saison März+)</h4>
-        <p>Rasenroboter, Gartenhäuser, Überdachungen, Pools, Grills, Feuerstellen — der Mittelstand eskaliert.</p>
-        <a href="#" onclick="return false;">→ Kategorie kommt heute</a>
+        <h2>🚐 Vanlife & Ausbau</h2>
+        <small>Zubehör, Setups, Tools (coming next)</small>
       </div>
       <div class="card">
-        <h4>Mobility / E-Bike / E-Moto</h4>
-        <p>Leasing, Zubehör, Controller, Akkus — Communities kaufen brutal. USA-Push später.</p>
-        <a href="#" onclick="return false;">→ Kategorie kommt heute</a>
-      </div>
-      <div class="card">
-        <h4>Wein & Genuss</h4>
-        <p>Geschenksets, Gläser, Dekanter, Zubehör — perfekt als “wertig” wirkender Shortcut-Kauf.</p>
-        <a href="#" onclick="return false;">→ Kategorie kommt heute</a>
-      </div>
-      <div class="card">
-        <h4>Geschenke unter 50 €</h4>
-        <p>Die Conversion-Schleuder. Kurzlisten, klare Empfehlungen, ohne Shit-Feeling.</p>
-        <a href="#" onclick="return false;">→ Kategorie kommt heute</a>
+        <h2>🧳 Reise & Frühbucher</h2>
+        <small>Inspiration + Deals (coming next)</small>
       </div>
     </section>
 
-    <section id="faq" class="hero" style="margin-top:18px;">
-      <h3 style="margin:0 0 10px; font-size:16px;">FAQ (kurz & sauber)</h3>
-      <div class="grid" style="margin-top:0;">
-        <div class="card" style="grid-column:span 6;">
-          <h4>Ist das eine Affiliate-Seite?</h4>
-          <p>Kann sein: Einige Links sind Affiliate-Links. Preis bleibt für dich gleich — wir finanzieren damit Betrieb & Ausbau.</p>
-        </div>
-        <div class="card" style="grid-column:span 6;">
-          <h4>Warum so minimal?</h4>
-          <p>Weil es funktionieren muss: schnell, stabil, wartungsarm. Wenn Traffic da ist, skalieren wir Kategorien & Tabellen.</p>
-        </div>
-      </div>
+    <section id="transparenz" class="card" style="margin-top:14px">
+      <h2>Transparenz</h2>
+      <p style="margin-bottom:0">
+        Einige Links auf dieser Seite sind Affiliate-Links. Wenn du darüber kaufst oder buchst,
+        erhalten wir ggf. eine Provision. Für dich ändert sich der Preis nicht.
+        Inhalte sind unabhängig erstellt; Empfehlungen basieren auf Recherche und Relevanz.
+      </p>
     </section>
 
-    <footer>
-      <div>© <span id="y"></span> Giftpilot</div>
-      <div class="links">
-        <a href="https://giftpilot.store" target="_blank" rel="noopener">giftpilot.store</a>
-        <a href="https://derzeitzuweit.de/impressum" target="_blank" rel="noopener">Impressum</a>
-        <a href="https://derzeitzuweit.de/datenschutz" target="_blank" rel="noopener">Datenschutz</a>
+    <footer id="kontakt">
+      <div style="color:var(--muted);font-size:13px">Kontakt: hallo@derzeitzuzweit.de</div>
+      <div>
+        <a href="/impressum.html">Impressum</a>
+        <a href="/datenschutz.html">Datenschutz</a>
       </div>
     </footer>
   </div>
-
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-
-    function resetForm(){
-      ["who","occasion","budget","style"].forEach(id=>document.getElementById(id).value="");
-      const box = document.getElementById("result");
-      box.style.display="none";
-      document.getElementById("resultText").innerHTML="";
-    }
-
-    function showSuggestions(){
-      const who = document.getElementById("who").value || "Person";
-      const occ = document.getElementById("occasion").value || "Anlass";
-      const budget = document.getElementById("budget").value || "Budget offen";
-      const style = document.getElementById("style").value || "Stil offen";
-
-      const bullets = [
-        `✅ Fokus: <b>${who}</b> · <b>${occ}</b> · <b>${budget}</b> · <b>${style}</b>`,
-        `→ Start 1: “Geschenke unter 50 €” (hohe Conversion, schnelle Entscheidung)`,
-        `→ Start 2: “Wein & Genuss” (wertig, wenig Retouren, gute Geschenk-Optik)`,
-        `→ Start 3: “Smart Home / Sicherheit” (hoher Warenkorb, Status-Käufe)`,
-        `→ Start 4: “Apple / Refurb” (Deal-Traffic, Ostern-Peak)`,
-      ];
-
-      const box = document.getElementById("result");
-      box.style.display="block";
-      document.getElementById("resultText").innerHTML = "<ul style='margin:0; padding-left:18px;'>" +
-        bullets.map(x=>`<li style="margin:6px 0; color:rgba(233,238,245,.88);">${x}</li>`).join("") +
-        "</ul>";
-      box.scrollIntoView({behavior:"smooth", block:"start"});
-    }
-  </script>
 </body>
 </html>
